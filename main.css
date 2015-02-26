@@ -1,0 +1,30 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
+.header {
+    text-align: center;
+}
+
+.group {
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.red {
+    background: indianred;
+}
+
+.yellow{
+    background-color: #E7A500;
+}
+
+.glyphicon {
+    margin: 0 20px;
+}

@@ -2,12 +2,38 @@
 <html ng-app="parseQ">
 <head>
     <title>ParseQ</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="main.css"/>
 </head>
 <body ng-controller="MainController">
+<div class="header">
+    <form class="form-inline">
+        <div class="form-group">
+            <label>Question</label>
+            <input class='form-control' placeholder='Ask a question...' type="text" ng-model="questionInput"/>
+        </div>
+        <button class="btn btn-info" ng-click="postQuestion()">Submit</button>
 
-{{test}}
-
+    </form>
+</div>
+<div>
+    <div ng-repeat="question in questions | filter: {status: 'red'}">
+        <div class="red group">
+            Question: {{question.text}}
+            <span class="badge pull-right">Created: {{question.createdAt | date: 'medium'}}</span>
+            <span class="pull-right glyphicon glyphicon-comment" ng-click="updateQuestion(question)"></span>
+        </div>
+    </div>
+</div>
+<div>
+    <div ng-repeat="question in questions | filter: {status: 'yellow'}">
+        <div class='yellow group'>
+            Question: {{question.text}}
+            <span class="badge pull-right">   Helped: {{question.updatedAt | date: 'medium'}} </span>
+            <span ng-click="deleteQuestion(question)" class="pull-right glyphicon glyphicon-remove"></span>
+        </div>
+    </div>
+</div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/defaultHeaders.js"></script>
